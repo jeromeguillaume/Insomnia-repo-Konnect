@@ -24,11 +24,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: export
-        run: Export
-          - inso export spec spc_91639e -o kong-marketStock.yaml
-          - /opt/homebrew/bin/deck file openapi2kong --inso-compatible --spec kong-marketStock.yaml -o kong-marketStock-konnect.yaml --select-tag market
-          - /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT --konnect-control-plane-name 'cp-gateway-docker' gateway reset --select-tag market -f
-          - /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT --konnect-control-plane-name 'cp-gateway-docker' gateway sync --select-tag market kong-marketStock-konnect.yaml
+      - name: Inso export
+        run: inso export spec spc_91639e -o kong-marketStock.yaml
+      - name: deck openapi2kong
+        run: /opt/homebrew/bin/deck file openapi2kong --inso-compatible --spec kong-marketStock.yaml -o kong-marketStock-konnect.yaml --select-tag market
+      - name: deck reset
+        run: /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT --konnect-control-plane-name 'cp-gateway-docker' gateway reset --select-tag market -f
+      - name: deck sync
+        run: /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT --konnect-control-plane-name 'cp-gateway-docker' gateway sync --select-tag market kong-marketStock-konnect.yaml
  
       
