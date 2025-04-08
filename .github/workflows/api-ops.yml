@@ -6,19 +6,28 @@ on:
       - master
 
 jobs:
-  api_quality:
+  linting:
     runs-on: self-hosted
-    name: Linting and Testing APIs
+    name: Linting API
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       - name: lint
         run: inso lint spec spc_91639e
+  testing:
+    runs-on: self-hosted
+    needs: linting
+    name: Testing API
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: test
         run: inso run collection wrk_ea3568
   deploy_to_konnect:
     runs-on: self-hosted
-    needs: api_quality
+    needs: 
+      - linting
+      - testing
     environment: prod
     env:
       KONNECT_PAT_ENV: ${{ secrets.KONNECT_PAT }}
