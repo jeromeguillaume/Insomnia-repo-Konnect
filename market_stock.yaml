@@ -4,6 +4,47 @@ meta:
   id: wrk_ea3568dbfbf0458b93fbd4434d102812
   created: 1744096096958
   modified: 1744101478834
+collection:
+  - url: http://httpbin.apim.eu/anything/market/stock/historical
+    name: /market/stock/historical
+    meta:
+      id: req_cf31479d1a2d4d8abf99ac9936a04995
+      created: 1744107267558
+      modified: 1744107302984
+      isPrivate: false
+      sortKey: -1744107267558
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://httpbin.apim.eu/anything/market/stock/closing
+    name: /market/stock/closing
+    meta:
+      id: req_7e6dbda88f8245dba9a8367b75f0f0a7
+      created: 1744107319718
+      modified: 1744107341612
+      isPrivate: false
+      sortKey: -1744107319718
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.0.2
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
