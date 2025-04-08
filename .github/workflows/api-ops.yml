@@ -18,6 +18,7 @@ jobs:
         run: inso run collection wrk_ea3568
   deploy_to_konnect:
     runs-on: self-hosted
+    needs: api_quality
     environment: prod
     name: Deploy the API in Konnect
     steps:
