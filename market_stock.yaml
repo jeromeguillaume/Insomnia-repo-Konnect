@@ -22,7 +22,7 @@ spec:
     openapi: 3.0.2
     info:
       title: Market Stock
-      version: 1.0.0
+      version: 1.0.1
       description: Market Stock API Information Service - mocking for demo purpose
       contact:
         name: Jerome Guillaume
@@ -145,4 +145,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1744101478833
+    modified: 1744106913134
