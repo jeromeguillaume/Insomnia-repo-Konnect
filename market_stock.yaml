@@ -77,7 +77,7 @@ spec:
       url: https://github.com/jeromeguillaume/myrepo-API-Konnect
     x-kong-plugin-key-auth:
       name: key-auth
-      enabled: false
+      enabled: true
       config:
         key_names:
           - api_key
@@ -195,4 +195,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1744108876479
+    modified: 1744108953005
