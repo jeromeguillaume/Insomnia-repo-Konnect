@@ -3,7 +3,7 @@ name: API Ops with Insomnia and Konnect
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   api_quality:
