@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: lint
+      - name: lint_
         run: inso lint spec -w . market_stock.yaml
   testing:
     runs-on: self-hosted
