@@ -94,6 +94,33 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - name: Mocking
+    meta:
+      id: fld_596ef7b545474c128f592cd381a00c35
+      created: 1744298588969
+      modified: 1744298588969
+      sortKey: -1744298588969
+    children:
+      - url: http://localhost:9080/bin/mock_74271f00a62e4965bfee08b72a1d59b4/market/stock/historical
+        name: New Request
+        meta:
+          id: req_4f0234339c2144308c8446a3e2061c98
+          created: 1744298593837
+          modified: 1744298597560
+          isPrivate: false
+          sortKey: -1744298593837
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.0.2
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:

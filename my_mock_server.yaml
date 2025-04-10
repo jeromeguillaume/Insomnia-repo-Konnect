@@ -1,0 +1,96 @@
+type: mock.insomnia.rest/5.0
+name: My Mock Server
+meta:
+  id: wrk_eed3509d107e4cd5a63e5356d99d63c1
+  created: 1744298496762
+  modified: 1744298496762
+server:
+  meta:
+    id: mock_74271f00a62e4965bfee08b72a1d59b4
+    created: 1744298496767
+    modified: 1744298496767
+  url: http://localhost:9080
+  useInsomniaCloud: false
+routes:
+  - name: /market/stock/historical
+    meta:
+      id: mock-route_75139564572c43b2bfbed8f2cf5ffac5
+      created: 1744298536175
+      modified: 1744298554094
+    body: |-
+      [
+        {
+          "api_name": "historical_stock_price_v2",
+          "num_total_data_points": 1,
+          "credit_cost": 10,
+          "start_date": "yesterday",
+          "end_date": "yesterday"
+        },
+        {
+          "IBM": [
+            {
+              "date": "2024-01-11",
+              "volume": 65723,
+              "high": 182.23,
+              "low": 179.65,
+              "adj_close": 46.04,
+              "close": 181.04,
+              "open": 180.02
+            }
+          ]
+        }
+      ]
+    headers:
+      - id: pair_45e49bf87a2848b3aad064098837e4e3
+        name: Content-Type
+        value: application/json
+        disabled: false
+    method: GET
+    mimeType: application/json
+    statusCode: 200
+  - name: /bin/mock_74271f00a62e4965bfee08b72a1d59b4/market/stock/historical2
+    meta:
+      id: mock-route_41694e3f81394243ba1b6f5bebb5c5b9
+      created: 1744298624128
+      modified: 1744298624128
+    body: |-
+      [
+        {
+          "api_name": "historical_stock_price_v2",
+          "num_total_data_points": 1,
+          "credit_cost": 10,
+          "start_date": "yesterday",
+          "end_date": "yesterday"
+        },
+        {
+          "IBM": [
+            {
+              "date": "2024-01-11",
+              "volume": 65723,
+              "high": 182.23,
+              "low": 179.65,
+              "adj_close": 46.04,
+              "close": 181.04,
+              "open": 180.02
+            }
+          ]
+        }
+      ]
+    headers:
+      - name: X-Powered-By
+        value: Express
+      - name: Content-Type
+        value: application/json; charset=utf-8
+      - name: ETag
+        value: W/"188-TkwN1XsQmr1dkgjoYR7ii755hCc"
+      - name: Vary
+        value: Accept-Encoding
+      - name: Date
+        value: Thu, 10 Apr 2025 15:23:19 GMT
+      - name: Connection
+        value: keep-alive
+      - name: Keep-Alive
+        value: timeout=5
+    method: GET
+    mimeType: application/json
+    statusCode: 200

@@ -1,0 +1,17 @@
+type: environment.insomnia.rest/5.0
+name: postman-env
+meta:
+  id: wrk_de6e40799c4148f38031dce5b9fc29e6
+  created: 1744298003836
+  modified: 1744298003836
+environments:
+  name: postman-env
+  meta:
+    id: env_08b37dacbaf242578869a0790c8f600e
+    created: 1744298003839
+    modified: 1744298042082
+    isPrivate: false
+  data:
+    host: sso.apim.eu:8443
+    client_id: client1
+    client_secret: tf8T1dBFFNcYU4BQqAyyed5xMEWECyny

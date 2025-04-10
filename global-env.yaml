@@ -9,7 +9,7 @@ environments:
   meta:
     id: env_34b3d8512210d2fefe66db6ae81f074ffedc2b2f
     created: 1744286829243
-    modified: 1744289093509
+    modified: 1744298262938
     isPrivate: false
   data:
     client_secret: "{% vault 'hashicorp',
