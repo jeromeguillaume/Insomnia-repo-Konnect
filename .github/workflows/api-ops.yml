@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: lint
-        run: inso lint spec -w . spc_91639e
+        run: inso lint spec -w . spc_91639e358913461199ec369f8dfd06e6
   testing:
     runs-on: self-hosted
     needs: linting
