@@ -12,8 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: lint_
-        run: inso -w . lint spec market_stock.yaml
+      - name: lint
+        run: inso lint spec spc_91639e
   testing:
     runs-on: self-hosted
     needs: linting
