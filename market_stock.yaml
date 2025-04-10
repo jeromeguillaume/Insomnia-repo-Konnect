@@ -90,7 +90,7 @@ spec:
     paths:
       /market/stock/historical:
         get:
-          operationId: GetMarketStockHistorical
+          operationId: getMarketStockHistorical
           summary: market stock historical data
           description: Returns the historical data of  stock price
           tags:
@@ -195,4 +195,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1744278821549
+    modified: 1744279342219
