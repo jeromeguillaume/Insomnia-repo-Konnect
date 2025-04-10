@@ -18,6 +18,7 @@ rules:
       field: operationId
       function: casing
       functionOptions:
+        type: camel
 
   # ---------------------------------------------------------------------------
   # Schema rules
