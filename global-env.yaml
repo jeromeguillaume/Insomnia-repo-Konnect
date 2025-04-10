@@ -9,7 +9,7 @@ environments:
   meta:
     id: env_34b3d8512210d2fefe66db6ae81f074ffedc2b2f
     created: 1744286829243
-    modified: 1744288296271
+    modified: 1744289093509
     isPrivate: false
   data:
     client_secret: "{% vault 'hashicorp',
@@ -19,3 +19,4 @@ environments:
     client_id: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
       '{\"secretName\":\"data\",\"kvVersion\":\"v2\",\"secretEnginePath\":\"key\
       cloak\",\"secretKey\":\"client_id\"}' %}"
+    host: sso.apim.eu:8443
