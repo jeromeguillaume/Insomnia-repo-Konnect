@@ -1,0 +1,45 @@
+type: mock.insomnia.rest/5.0
+name: My Mock Server
+meta:
+  id: wrk_54d5cebb43bd4dc8baefae47b4570c7d
+  created: 1744276265269
+  modified: 1744276265269
+server:
+  meta:
+    id: mock_e1de443b4cef4fdbb3d79362d43c78d1
+    created: 1744276265275
+    modified: 1744276265275
+  url: http://localhost:9080
+  useInsomniaCloud: false
+routes:
+  - name: /market/stock/historical
+    meta:
+      id: mock-route_9e5e8bd08e304ebab87523201909fa22
+      created: 1744276270441
+      modified: 1744276473406
+    body: |-
+      [
+        {
+          "api_name": "historical_stock_price_v2",
+          "num_total_data_points": 1,
+          "credit_cost": 10,
+          "start_date": "yesterday",
+          "end_date": "yesterday"
+        },
+        {
+          "IBM": [
+            {
+              "date": "2024-01-11",
+              "volume": 65723,
+              "high": 182.23,
+              "low": 179.65,
+              "adj_close": 46.04,
+              "close": 181.04,
+              "open": 180.02
+            }
+          ]
+        }
+      ]
+    method: GET
+    mimeType: application/json
+    statusCode: 200
