@@ -90,7 +90,7 @@ spec:
     paths:
       /market/stock/historical:
         get:
-          operationId: get_market_stock_historical
+          operationId: getMarketStockHistorical
           summary: market stock historical data
           description: Returns the historical data of  stock price
           tags:
@@ -161,7 +161,7 @@ spec:
                         - error: Service unvailable
       /market/stock/closing:
         get:
-          operationId: get_market_stock_closing
+          operationId: getMarketStockClosing
           summary: closing value
           description: Get the closing value of a stock price
           tags:
@@ -195,4 +195,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1744109963638
+    modified: 1744274046099
