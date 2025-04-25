@@ -9,21 +9,22 @@ collection:
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1744297039419
+      modified: 1745587354651
       sortKey: -1744296842512
     children:
-      - url: http://httpbin.apim.eu/anything/market/stock/historical
+      - url: https://{{ _.host }}/market/stock/historical
         name: /market/stock/historical
         meta:
           id: req_cf31479d1a2d4d8abf99ac9936a04995
           created: 1744107267558
-          modified: 1744297006921
+          modified: 1745587358604
           isPrivate: false
           sortKey: -1744296847234
         method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
+            id: pair_289bf3c4389b40ce9a16b8635e34b7e2
         scripts:
           afterResponse: |+
             
@@ -39,12 +40,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://httpbin.apim.eu/anything/market/stock/closing
+      - url: https://{{ _.host }}/market/stock/closing
         name: /market/stock/closing
         meta:
           id: req_7e6dbda88f8245dba9a8367b75f0f0a7
           created: 1744107319718
-          modified: 1744297029410
+          modified: 1745587313798
           isPrivate: false
           sortKey: -1744296847134
         method: GET
@@ -66,74 +67,40 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://httpbin.apim.eu/anything
-        name: /anything
-        meta:
-          id: req_0e0b1d9a71664be3a27bf24b20620238
-          created: 1744296858303
-          modified: 1744296923303
-          isPrivate: false
-          sortKey: -1744296847334
-        method: POST
-        body:
-          mimeType: application/json
-          text: |-
-            {
-            	"var1": "value1"
-            }
-        headers:
-          - name: Content-Type
-            value: application/json
-          - name: User-Agent
-            value: insomnia/11.0.2
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
-  - name: Mocking
-    meta:
-      id: fld_596ef7b545474c128f592cd381a00c35
-      created: 1744298588969
-      modified: 1744298588969
-      sortKey: -1744298588969
-    children:
-      - url: http://localhost:9080/bin/mock_74271f00a62e4965bfee08b72a1d59b4/market/stock/historical
-        name: New Request
-        meta:
-          id: req_4f0234339c2144308c8446a3e2061c98
-          created: 1744298593837
-          modified: 1744298597560
-          isPrivate: false
-          sortKey: -1744298593837
-        method: GET
-        headers:
-          - name: User-Agent
-            value: insomnia/11.0.2
-        settings:
-          renderRequestBody: true
-          encodeUrl: true
-          followRedirects: global
-          cookies:
-            send: true
-            store: true
-          rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1744297039419
+    modified: 1745587354650
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1744297039419
+    modified: 1745587354651
     isPrivate: false
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_95ad3ad32ce24f1bbaf69b738bb4c6ca
+        created: 1745587152579
+        modified: 1745587333867
+        isPrivate: false
+        sortKey: 1745587152579
+      data:
+        host: httpbin.apim.eu/anything
+      color: "#323cc8"
+    - name: Prod
+      meta:
+        id: env_5cbaab419e214d3b8d95999828a0958f
+        created: 1745587172949
+        modified: 1745587354650
+        isPrivate: false
+        sortKey: 1745587172949
+      data:
+        host: a8d84b56e2.gateways.konghq.com:443
+      color: "#0ba80d"
 spec:
   contents:
     openapi: 3.0.2
