@@ -40,8 +40,8 @@ jobs:
       - name: deck openapi2kong
         run: /opt/homebrew/bin/deck file openapi2kong --inso-compatible --spec kong-marketStock.yaml -o kong-marketStock-konnect.yaml --select-tag market
       - name: deck reset
-        run: /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT_ENV --konnect-control-plane-name cp-gateway-docker gateway reset --select-tag market -f
+        run: /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT_ENV --konnect-control-plane-name cp-cloud-gateway-AZURE gateway reset --select-tag market -f
       - name: deck sync
-        run: /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT_ENV --konnect-control-plane-name cp-gateway-docker gateway sync --select-tag market kong-marketStock-konnect.yaml
+        run: /opt/homebrew/bin/deck --konnect-addr https://eu.api.konghq.com  --konnect-token $KONNECT_PAT_ENV --konnect-control-plane-name cp-cloud-gateway-AZURE gateway sync --select-tag market kong-marketStock-konnect.yaml
  
       
