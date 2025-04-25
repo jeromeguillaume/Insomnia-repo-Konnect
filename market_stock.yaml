@@ -9,7 +9,7 @@ collection:
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1745587642501
+      modified: 1745587938009
       sortKey: -1744296842512
     children:
       - url: https://{{ _.host }}/market/stock/historical
@@ -71,13 +71,13 @@ cookieJar:
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1745587642500
+    modified: 1745587938006
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1745587642501
+    modified: 1745587938008
     isPrivate: false
   subEnvironments:
     - name: Dev
@@ -94,7 +94,7 @@ environments:
       meta:
         id: env_5cbaab419e214d3b8d95999828a0958f
         created: 1745587172949
-        modified: 1745587634951
+        modified: 1745587938007
         isPrivate: false
         sortKey: 1745587172949
       data:
@@ -117,9 +117,15 @@ spec:
     externalDocs:
       description: GitHub project for the code and information about this API
       url: https://github.com/jeromeguillaume/myrepo-API-Konnect
+    x-kong-plugin-cors:
+      name: cors
+      enabled: true
+      config:
+        origins:
+          - "*"
     x-kong-plugin-key-auth:
       name: key-auth
-      enabled: true
+      enabled: false
       config:
         key_names:
           - api_key
@@ -237,4 +243,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1745587830656
+    modified: 1745589904688
