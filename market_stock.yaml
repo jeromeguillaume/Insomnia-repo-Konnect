@@ -3,13 +3,13 @@ name: Market Stock
 meta:
   id: wrk_ea3568dbfbf0458b93fbd4434d102812
   created: 1744096096958
-  modified: 1745587603507
+  modified: 1745594755475
 collection:
   - name: My Folder
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1745587938009
+      modified: 1745594734193
       sortKey: -1744296842512
     children:
       - url: https://{{ _.host }}/market/stock/historical
@@ -71,20 +71,20 @@ cookieJar:
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1745587938006
+    modified: 1745594734192
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1745587938008
+    modified: 1745594734193
     isPrivate: false
   subEnvironments:
     - name: Dev
       meta:
         id: env_95ad3ad32ce24f1bbaf69b738bb4c6ca
         created: 1745587152579
-        modified: 1745587642501
+        modified: 1745594734193
         isPrivate: false
         sortKey: 1745587152579
       data:
@@ -105,7 +105,7 @@ spec:
     openapi: 3.0.2
     info:
       title: Market Stock
-      version: 1.0.1
+      version: 1.0.2
       description: Market Stock API Information Service - mocking for demo purpose
       contact:
         name: Jerome Guillaume
@@ -243,4 +243,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1745589904688
+    modified: 1745594850943
