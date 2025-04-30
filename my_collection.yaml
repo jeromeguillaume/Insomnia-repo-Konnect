@@ -17,11 +17,8 @@ collection:
     headers:
       - name: User-Agent
         value: insomnia/11.0.2
-        id: pair_40c5abaff19746c8860a82acb870c535
-      - id: pair_22eec4353aed4879a56549dea3d59ec9
-        name: apikey
+      - name: apikey
         value: gold
-        disabled: false
     settings:
       renderRequestBody: true
       encodeUrl: true
