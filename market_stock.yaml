@@ -9,15 +9,15 @@ collection:
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1746170773254
+      modified: 1746170953050
       sortKey: -1744296842512
     children:
-      - url: https://{{ _.host }}/market/stock/historical
+      - url: http://{{ _.host }}/market/stock/historical
         name: /market/stock/historical
         meta:
           id: req_cf31479d1a2d4d8abf99ac9936a04995
           created: 1744107267558
-          modified: 1745587358604
+          modified: 1746170935370
           isPrivate: false
           sortKey: -1744296847234
         method: GET
@@ -39,12 +39,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: https://{{ _.host }}/market/stock/closing
+      - url: http://{{ _.host }}/market/stock/closing
         name: /market/stock/closing
         meta:
           id: req_7e6dbda88f8245dba9a8367b75f0f0a7
           created: 1744107319718
-          modified: 1746037244944
+          modified: 1746170951756
           isPrivate: false
           sortKey: -1744296847134
         method: GET
@@ -74,13 +74,13 @@ cookieJar:
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1746170773253
+    modified: 1746170953048
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1746170773254
+    modified: 1746170953049
     isPrivate: false
   subEnvironments:
     - name: Dev
@@ -97,11 +97,11 @@ environments:
       meta:
         id: env_5cbaab419e214d3b8d95999828a0958f
         created: 1745587172949
-        modified: 1745587938007
+        modified: 1746170953048
         isPrivate: false
         sortKey: 1745587172949
       data:
-        host: a8d84b56e2.gateways.konghq.com:443
+        host: localhost:8000
       color: "#0ba80d"
 spec:
   contents:
