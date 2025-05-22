@@ -3,13 +3,13 @@ name: Market Stock
 meta:
   id: wrk_ea3568dbfbf0458b93fbd4434d102812
   created: 1744096096958
-  modified: 1747833320607
+  modified: 1747904515295
 collection:
   - name: My Folder
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1747833391966
+      modified: 1747905706281
       sortKey: -1744296842512
     children:
       - url: http://{{ _.host }}/market/stock/historical
@@ -17,13 +17,14 @@ collection:
         meta:
           id: req_cf31479d1a2d4d8abf99ac9936a04995
           created: 1744107267558
-          modified: 1746170935370
+          modified: 1747904956669
           isPrivate: false
           sortKey: -1744296847234
         method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
+            id: pair_bbe3c96d0d67420b9654a73299930f01
         scripts:
           afterResponse: |+
             
@@ -69,46 +70,110 @@ collection:
             send: true
             store: true
           rebuildPath: true
+  - url: http://{{ _.host }}/myhttpbin/anything
+    name: /anything
+    meta:
+      id: req_0a0787f23699467894d3c327f2a64ba8
+      created: 1747904969261
+      modified: 1747905661225
+      isPrivate: false
+      sortKey: -1747904969261
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.1.0
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
+        '{\"secretName\":\"mysecret\",\"kvVersion\":\"v2\",\"secretEnginePath\":\
+        \"ca-ts\",\"secretKey\":\"client_id\"}' %}"
+      password: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
+        '{\"secretName\":\"mysecret\",\"kvVersion\":\"v2\",\"secretEnginePath\":\
+        \"ca-ts\",\"secretKey\":\"client_secret\"}' %}"
+    scripts:
+      preRequest: |+
+        
+        insomnia.request.addHeader({key: 'X-My-Header', value: 'ca-ts' });
+        console.log("log", "My debug");
+
+
+
+      afterResponse: |+
+        
+        insomnia.test('Check if status is 200', () => {
+            insomnia.expect(insomnia.response.code).to.eql(200);
+        	
+        	
+        const jsonBody = insomnia.response.json();
+
+
+        insomnia.expect(jsonBody.method).to.be.a('string');
+
+
+        	
+        });
+
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1747833391965
+    modified: 1747905706280
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1747833391966
+    modified: 1747905706280
     isPrivate: false
   subEnvironments:
     - name: Dev
       meta:
         id: env_95ad3ad32ce24f1bbaf69b738bb4c6ca
         created: 1745587152579
-        modified: 1746176452508
+        modified: 1747904902110
         isPrivate: false
         sortKey: 1745587152579
       data:
         host: httpbin.apim.eu/anything
+        X-Header: ca-ts
       color: "#323cc8"
     - name: Prod
       meta:
         id: env_5cbaab419e214d3b8d95999828a0958f
         created: 1745587172949
-        modified: 1747833391965
+        modified: 1747905706280
         isPrivate: false
         sortKey: 1745587172949
       data:
         host: localhost:8000
       color: "#0ba80d"
+    - name: homol
+      meta:
+        id: env_e80eee679633499eba5e2c5fd5548a35
+        created: 1747904770265
+        modified: 1747904798490
+        isPrivate: false
+        sortKey: 1747904770265
+      data:
+        host: http://localhost
+      color: "#c9cc19"
 spec:
   contents:
     openapi: 3.0.2
     info:
       title: Market Stock
-      version: 1.0.6
+      version: 1.0.7
       description: Market Stock API Information Service - mocking for demo purpose
       contact:
         name: Jerome Guillaume
@@ -246,4 +311,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1747833355821
+    modified: 1747905867622
