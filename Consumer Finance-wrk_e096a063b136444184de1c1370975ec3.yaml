@@ -4,6 +4,7 @@ meta:
   id: wrk_e096a063b136444184de1c1370975ec3
   created: 1747907152815
   modified: 1747907152815
+  description: ""
 collection:
   - name: Consumer Finance
     meta:
@@ -11,6 +12,7 @@ collection:
       created: 1747907152818
       modified: 1747907152818
       sortKey: -1747907149613
+      description: ""
     children:
       - name: Document
         meta:
@@ -18,6 +20,7 @@ collection:
           created: 1747907152819
           modified: 1747907152819
           sortKey: -1747907149612
+          description: ""
         children:
           - url: https://{{_['host']}}/auth/realms/Jerome/protocol/openid-connect/token
             name: Step 1. Get Access token
@@ -31,18 +34,19 @@ collection:
               sortKey: -1747907149611
             method: POST
             body:
-              params:
-                - value: client_credentials
-                  name: grant_type
-                  disabled: false
-                - value: openid
-                  name: scope
-                  disabled: false
               mimeType: application/x-www-form-urlencoded
+              params:
+                - name: grant_type
+                  value: client_credentials
+                  disabled: false
+                - name: scope
+                  value: openid
+                  disabled: false
             headers:
               - name: Content-Type
                 value: application/x-www-form-urlencoded
             scripts:
+              preRequest: ""
               afterResponse: "insomnia.test(\"Application access token creation\", () => {\r
 
                 \ \r
@@ -81,14 +85,14 @@ collection:
               sortKey: -1747907149610
             method: POST
             body:
-              params:
-                - value: client_credentials
-                  name: grant_type
-                  disabled: false
-                - value: openid
-                  name: scope
-                  disabled: false
               mimeType: application/x-www-form-urlencoded
+              params:
+                - name: grant_type
+                  value: client_credentials
+                  disabled: false
+                - name: scope
+                  value: openid
+                  disabled: false
             headers:
               - name: Content-Type
                 value: application/x-www-form-urlencoded
@@ -130,18 +134,19 @@ collection:
               sortKey: -1747907149609
             method: POST
             body:
-              params:
-                - value: access_token
-                  name: token_type_hint
-                  disabled: false
-                - value: "{{_['POD-AAT']}}"
-                  name: token
-                  disabled: false
               mimeType: application/x-www-form-urlencoded
+              params:
+                - name: token_type_hint
+                  value: access_token
+                  disabled: false
+                - name: token
+                  value: "{{_['POD-AAT']}}"
+                  disabled: false
             headers:
               - name: Content-Type
                 value: application/x-www-form-urlencoded
             scripts:
+              preRequest: ""
               afterResponse: "insomnia.test(\"Validate Token\", () => {\r
 
                 \ \r
@@ -166,6 +171,7 @@ collection:
               created: 1747907152821
               modified: 1747907152821
               isPrivate: false
+              description: ""
               sortKey: -1747907149608
             method: POST
             body:
@@ -182,6 +188,7 @@ collection:
               - name: Content-Type
                 value: application/json
             scripts:
+              preRequest: ""
               afterResponse: "insomnia.test(\"Application access token creation\", () => {\r
 
                 \ \r
@@ -218,21 +225,22 @@ collection:
               sortKey: -1747907149607
             method: POST
             body:
-              params:
-                - value: urn:ietf:params:oauth:grant-type:jwt-bearer
-                  name: grant_type
-                  disabled: false
-                - value: "{{_['POD-ID-TOKEN']}}"
-                  name: assertion
-                  disabled: false
-                - value: openid
-                  name: scope
-                  disabled: false
               mimeType: application/x-www-form-urlencoded
+              params:
+                - name: grant_type
+                  value: urn:ietf:params:oauth:grant-type:jwt-bearer
+                  disabled: false
+                - name: assertion
+                  value: "{{_['POD-ID-TOKEN']}}"
+                  disabled: false
+                - name: scope
+                  value: openid
+                  disabled: false
             headers:
               - name: Content-Type
                 value: application/x-www-form-urlencoded
             scripts:
+              preRequest: ""
               afterResponse: "insomnia.test(\"Application access token creation\", () => {\r
 
                 \ \r
@@ -281,6 +289,7 @@ collection:
               disabled: false
               token: "{{_['POD-UAT']}}"
             scripts:
+              preRequest: ""
               afterResponse: "insomnia.test(\"Validate Assertion related to AAT\", function ()
                 {\r
 
@@ -350,15 +359,17 @@ collection:
               created: 1747907152822
               modified: 1747907152822
               isPrivate: false
+              description: ""
               sortKey: -1747907149605
             method: POST
             body:
+              mimeType: multipart/form-data
               params:
-                - type: file
-                  name: file
+                - name: file
+                  value: ""
                   disabled: false
                   fileName: /home/devops/decoupage.pdf
-              mimeType: multipart/form-data
+                  type: file
             parameters:
               - name: withOcr
                 value: "true"
@@ -369,10 +380,8 @@ collection:
             headers:
               - name: context-partnerid
                 value: web_sofinco
-                description: (Required) partnerId
               - name: context-applicationid
                 value: upload-se
-                description: (Required) applicationId
               - name: Content-Type
                 value: multipart/form-data
               - name: Authorization
@@ -381,6 +390,9 @@ collection:
               type: bearer
               disabled: false
               token: "{{_['POD-UAT']}}"
+            scripts:
+              preRequest: ""
+              afterResponse: ""
             settings:
               renderRequestBody: true
               encodeUrl: true
@@ -397,17 +409,19 @@ collection:
               created: 1747907152823
               modified: 1747907152823
               isPrivate: false
+              description: ""
               sortKey: -1747907149604
             method: DELETE
             headers:
               - name: context-partnerid
                 value: web_sofinco
-                description: (Required) partnerId
               - name: context-applicationid
                 value: upload-se
-                description: (Required) applicationId
               - name: x-jwt-assertion
                 value: "{{UATAssertion}}"
+            scripts:
+              preRequest: ""
+              afterResponse: ""
             settings:
               renderRequestBody: true
               encodeUrl: true
@@ -416,17 +430,22 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
         authentication:
           type: basic
-          disabled: false
+          useISO88591: false
           username: "{{client_id}}"
           password: "{{client_secret}}"
+          disabled: false
       - name: Token
         meta:
           id: fld_717d9be36aa54ba0899b2420793b3ee2
           created: 1747907152823
           modified: 1747907152823
           sortKey: -1747907149603
+          description: ""
         children:
           - url: https://kong-gateway.com/meetings/1
             name: Kong - Calendar
@@ -435,12 +454,16 @@ collection:
               created: 1747907152823
               modified: 1747907152823
               isPrivate: false
+              description: ""
               sortKey: -1747907149601
             method: GET
             authentication:
               type: bearer
               disabled: false
               token: T7S20wdJzi9DO-JZFTMK74_u4cNsT6RlhHGniS_lgmoSPVdjyr19uRJlMDGaFBXp55IJEgpFef_jKVH5B1JABOfaw-sw0HCtDRHXHqdbw0YZTYU3twWhR-z-xJuRkEh8qSaPTisTIDy-3lksKIi1VnkxHWDrdZWbV2oDlcZwu0s
+            scripts:
+              preRequest: ""
+              afterResponse: ""
             settings:
               renderRequestBody: true
               encodeUrl: true
@@ -456,26 +479,29 @@ collection:
               created: 1747907152823
               modified: 1747907152823
               isPrivate: false
+              description: ""
               sortKey: -1747907149602
             method: POST
             body:
-              params:
-                - value: client_credentials
-                  name: grant_type
-                  disabled: false
-                - value: read
-                  name: scope
-                  disabled: false
               mimeType: application/x-www-form-urlencoded
+              params:
+                - name: grant_type
+                  value: client_credentials
+                  disabled: false
+                - name: scope
+                  value: read
+                  disabled: false
             headers:
               - name: Content-Type
                 value: application/x-www-form-urlencoded
             authentication:
               type: basic
-              disabled: false
+              useISO88591: false
               username: C445059C625AEF58
               password: 6DE8327C54789FF81127FDB18C9436ECB553E8AEBCFA053D6553BF86B7998BFD
+              disabled: false
             scripts:
+              preRequest: ""
               afterResponse: >-
                 insomnia.test("Get an access token", function(){
                     var json = insomnia.response.json();
@@ -500,6 +526,7 @@ collection:
               created: 1747907152824
               modified: 1747907152824
               isPrivate: false
+              description: ""
               sortKey: -1747907149600
             method: GET
             parameters:
@@ -521,6 +548,9 @@ collection:
               type: bearer
               disabled: false
               token: T7S20wdJzi9DO-JZFTMK74_u4cNsT6RlhHGniS_lgmoSPVdjyr19uRJlMDGaFBXpNMZ1a9pGqjDPyrIIQdo2iAG5YwKEvgwnho6AcqVvtuUn3P2hETswdpCD4ucvsV5edj7np7qbJTLWZuzMwC2fRQRjiFcFytctXDQY2l1XHNc
+            scripts:
+              preRequest: ""
+              afterResponse: ""
             settings:
               renderRequestBody: true
               encodeUrl: true
@@ -529,6 +559,12 @@ collection:
                 send: true
                 store: true
               rebuildPath: true
+        scripts:
+          afterResponse: ""
+          preRequest: ""
+    scripts:
+      afterResponse: ""
+      preRequest: ""
 cookieJar:
   name: Default Jar
   meta:

@@ -4,6 +4,7 @@ meta:
   id: wrk_ea3568dbfbf0458b93fbd4434d102812
   created: 1744096096958
   modified: 1747904515295
+  description: ""
 collection:
   - name: My Folder
     meta:
@@ -11,6 +12,7 @@ collection:
       created: 1744296842512
       modified: 1747905706281
       sortKey: -1744296842512
+      description: ""
     children:
       - url: http://{{ _.host }}/market/stock/historical
         name: /market/stock/historical
@@ -19,13 +21,14 @@ collection:
           created: 1744107267558
           modified: 1747904956669
           isPrivate: false
+          description: ""
           sortKey: -1744296847234
         method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
-            id: pair_bbe3c96d0d67420b9654a73299930f01
         scripts:
+          preRequest: ""
           afterResponse: |+
             
             insomnia.test('Check if status is 200', () => {
@@ -47,12 +50,14 @@ collection:
           created: 1744107319718
           modified: 1746170951756
           isPrivate: false
+          description: ""
           sortKey: -1744296847134
         method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
         scripts:
+          preRequest: ""
           afterResponse: |+
             
             insomnia.test('Check if status is 200', () => {
@@ -70,6 +75,9 @@ collection:
             send: true
             store: true
           rebuildPath: true
+    scripts:
+      afterResponse: ""
+      preRequest: ""
   - url: http://{{ _.host }}/myhttpbin/anything
     name: /anything
     meta:
@@ -77,6 +85,7 @@ collection:
       created: 1747904969261
       modified: 1747905661225
       isPrivate: false
+      description: ""
       sortKey: -1747904969261
     method: GET
     headers:
@@ -85,13 +94,13 @@ collection:
     authentication:
       type: basic
       useISO88591: false
-      disabled: false
       username: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
         '{\"secretName\":\"mysecret\",\"kvVersion\":\"v2\",\"secretEnginePath\":\
         \"ca-ts\",\"secretKey\":\"client_id\"}' %}"
       password: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
         '{\"secretName\":\"mysecret\",\"kvVersion\":\"v2\",\"secretEnginePath\":\
         \"ca-ts\",\"secretKey\":\"client_secret\"}' %}"
+      disabled: false
     scripts:
       preRequest: |+
         
