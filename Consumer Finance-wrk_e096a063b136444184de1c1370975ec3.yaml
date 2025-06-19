@@ -10,7 +10,7 @@ collection:
     meta:
       id: fld_aa87edd56ba04a09add00d7571082e43
       created: 1747907152818
-      modified: 1750340314764
+      modified: 1750344084711
       sortKey: -1747907149613
       description: ""
     children:
@@ -18,7 +18,7 @@ collection:
         meta:
           id: fld_8ffd669a8d2f40cfb688c608a5ccd7d3
           created: 1747907152819
-          modified: 1750340314764
+          modified: 1750344084711
           sortKey: -1747907149612
           description: ""
         children:
@@ -27,7 +27,7 @@ collection:
             meta:
               id: req_e052c06a243e470e8771f528bb4cb4d0
               created: 1747907152819
-              modified: 1747907152819
+              modified: 1750344259087
               isPrivate: false
               description: Obtenir un token de type application pour appeler les apis sans
                 authentification
@@ -42,9 +42,21 @@ collection:
                 - name: scope
                   value: openid
                   disabled: false
+            parameters:
+              - id: pair_b299a32fc0434f46ad5027b735880eb1
+                name: ""
+                value: ""
+                description: ""
+                disabled: false
             headers:
               - name: Content-Type
                 value: application/x-www-form-urlencoded
+                id: pair_2d4ceb21402d44139b8f6470483f3b94
+              - id: pair_40915c2e43d04386a45ddf710940dd71
+                name: X-Header1
+                value: "{{ _['dev-key1'] }}"
+                description: ""
+                disabled: false
             scripts:
               preRequest: ""
               afterResponse: "insomnia.test(\"Application access token creation\", () => {\r
@@ -570,7 +582,7 @@ cookieJar:
   meta:
     id: jar_0e93197a0c0fa1dcd4c0bce1bc89bdde365c8743
     created: 1747907155326
-    modified: 1750340314763
+    modified: 1750344084710
   cookies:
     - key: KC_RESTART
       maxAge: 0
@@ -581,9 +593,9 @@ cookieJar:
       extensions:
         - Version=1
       hostOnly: true
-      creation: 2025-06-19T08:57:38.910Z
-      lastAccessed: 2025-06-19T13:38:34.758Z
-      id: 0543d8be-50f4-4d37-8907-efd5fd1ba317
+      creation: 2025-06-19T14:41:24.704Z
+      lastAccessed: 2025-06-19T14:41:24.704Z
+      id: a3e39067-6951-4bcb-ad58-c1addcf07d60
     - id: e67bee60-f136-44cb-bf47-04dc6aa61811
       key: KC_RESTART
       value: ""
@@ -597,7 +609,18 @@ environments:
   meta:
     id: env_0e93197a0c0fa1dcd4c0bce1bc89bdde365c8743
     created: 1747907155324
-    modified: 1750340314763
+    modified: 1750344084711
     isPrivate: false
   data:
-    POD-AAT: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxOEVFR3YweE9FQkt3eFNJYVZDNGpHTWxVcF8yWURhS1pfMVdZNHV3b2lRIn0.eyJleHAiOjE3NTAzNDIxMTQsImlhdCI6MTc1MDM0MDMxNCwianRpIjoiODdmZDRiMDEtMmVkOS00ZTY0LWJkYzQtYWU1Nzg5NWFhYTFmIiwiaXNzIjoiaHR0cHM6Ly9zc28uYXBpbS5ldTo4NDQzL2F1dGgvcmVhbG1zL0plcm9tZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiIzNmZhYzkxZC04MjA0LTQxMjUtOTEwMy00NDYxMDAyMGU0ODMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjbGllbnQxIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtamVyb21lIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJjbGllbnQxIjp7InJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIGJyb256ZSBvcGVuYWkiLCJjbGllbnRJZCI6ImNsaWVudDEiLCJjbGllbnRIb3N0IjoiMTQxLjI1NS4xMzMuMjMxIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtY2xpZW50MSIsImNsaWVudEFkZHJlc3MiOiIxNDEuMjU1LjEzMy4yMzEifQ.DlBtLOP0uC-HDfHDA7Ib05-ILXdZ34d2_ChGXQ8nqdmUQekbTPrzxyyh91ndEJX3W3DjB_pNghN7Hrtzib2i4SGGYfD-mJBfDoQWJ1T6Alsv9-iJmjy4Q4_4yWUy0ahGIE0Z0cqPexmjmz9X9o2fguySO5Z4ZcVF6W1sm9AZ9xblO3VHA-jMLPV2S-QoPhMoiFW0R_zhi86DEjZeiSzq_4ylxXxBmztAkHVUm0R0mrcH68M_-sbUZmqROxPWndW1gpHYqNmABCMcBrSqykfNZhJOAU8uDkSSnw-KLfNWzfI-xoSq7FBTvS2w_TBamVI9JMI7HfDwr8kKlcVEJIoSqA
+    POD-AAT: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxOEVFR3YweE9FQkt3eFNJYVZDNGpHTWxVcF8yWURhS1pfMVdZNHV3b2lRIn0.eyJleHAiOjE3NTAzNDU4ODQsImlhdCI6MTc1MDM0NDA4NCwianRpIjoiOGM5YjI1YjQtNDE2MC00N2FlLTg4MGItNTdjYWQ2OWY1ODNhIiwiaXNzIjoiaHR0cHM6Ly9zc28uYXBpbS5ldTo4NDQzL2F1dGgvcmVhbG1zL0plcm9tZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiIzNmZhYzkxZC04MjA0LTQxMjUtOTEwMy00NDYxMDAyMGU0ODMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjbGllbnQxIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtamVyb21lIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJjbGllbnQxIjp7InJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIGJyb256ZSBvcGVuYWkiLCJjbGllbnRJZCI6ImNsaWVudDEiLCJjbGllbnRIb3N0IjoiMTQxLjI1NS4xMzMuMjMxIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtY2xpZW50MSIsImNsaWVudEFkZHJlc3MiOiIxNDEuMjU1LjEzMy4yMzEifQ.hfer7QDoTCRgL_REmp9D0hGRivoz8snuGFDvtJPnhMxtlqcUrC3OYryaZln1EY2JgsMirMU9W1uS4CiSXtZaAk7mJ-QwDQ4ocRyDF1wwMYBLCJ2_ofQU2vi0kd2i2qDTRM6vbsuHvtYhKFijJEXTzY8QIiZnVwWD_eac78cPxlaMDVuG2r5c9QcQfRnxpega02rSJtG4BbKRqHeWkBCznXTUZARR-la94VGtgR8JfOSg61EDTcGUjOw8zLVho5VE-Fb6U6i41zTf_ODW-h4Y8H_kOiSL-WM8-KeHm615-XgVEGoj8U94NJ-O8RITSfflk2TGXG_YdUHOpspjqr231Q
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_2acc1ffee67844fd83c1c88d0bd57bca
+        created: 1750344097282
+        modified: 1750344114593
+        isPrivate: false
+        sortKey: 1750344097282
+      data:
+        dev-key1: value1
+      color: "#af6e6e"
