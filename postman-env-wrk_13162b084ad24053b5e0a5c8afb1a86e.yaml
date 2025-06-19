@@ -10,9 +10,10 @@ environments:
   meta:
     id: env_a81883b1f19a45ab8fefddcd7ac55893
     created: 1750325167965
-    modified: 1750325188289
+    modified: 1750340314764
     isPrivate: false
   data:
+    host: sso.apim.eu:8443
     POD-AAT: ""
     client_id: client1
     client_secret: tf8T1dBFFNcYU4BQqAyyed5xMEWECyny
