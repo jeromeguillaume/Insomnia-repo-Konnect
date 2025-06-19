@@ -10,7 +10,7 @@ collection:
     meta:
       id: fld_aa87edd56ba04a09add00d7571082e43
       created: 1747907152818
-      modified: 1747907152818
+      modified: 1750323459546
       sortKey: -1747907149613
       description: ""
     children:
@@ -18,7 +18,7 @@ collection:
         meta:
           id: fld_8ffd669a8d2f40cfb688c608a5ccd7d3
           created: 1747907152819
-          modified: 1747907152819
+          modified: 1750323459546
           sortKey: -1747907149612
           description: ""
         children:
@@ -565,16 +565,129 @@ collection:
     scripts:
       afterResponse: ""
       preRequest: ""
+  - url: http://host/myrequest
+    name: all-env
+    meta:
+      id: req_fb395fbfff9e49b48a196f2784cff575
+      created: 1750324999608
+      modified: 1750326297197
+      isPrivate: false
+      description: ""
+      sortKey: -1750324999608
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
+        'eyJzZWNyZXRFbmdpbmVQYXRoIjoia29uZy1jb25maWciLCJzZWNyZXROYW1lIjoib3Blbm\
+        lkLWtleWNsb2FrIiwia3ZWZXJzaW9uIjoidjIiLCJzZWNyZXRLZXkiOiJjbGllbnRfc2Vjc\
+        mV0In0=' %}"
+      password: "{{ _.client_secret }}"
+    scripts:
+      afterResponse: |+
+        
+        insomnia.test('Check if status is 200', () => {
+            insomnia.expect(insomnia.response.code).to.eql(200);
+        });
+
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://host/myrequest
+    name: prod
+    meta:
+      id: req_11e0d00405c24e2ebc7e1895c128c5aa
+      created: 1750326183310
+      modified: 1750326187748
+      isPrivate: false
+      description: ""
+      sortKey: -1750072903442.5
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    authentication:
+      type: basic
+      useISO88591: false
+      disabled: false
+      username: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
+        'eyJzZWNyZXRFbmdpbmVQYXRoIjoia29uZy1jb25maWciLCJzZWNyZXROYW1lIjoib3Blbm\
+        lkLWtleWNsb2FrIiwia3ZWZXJzaW9uIjoidjIiLCJzZWNyZXRLZXkiOiJjbGllbnRfc2Vjc\
+        mV0In0=' %}"
+      password: "{{ _.client_secret }}"
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_0e93197a0c0fa1dcd4c0bce1bc89bdde365c8743
     created: 1747907155326
-    modified: 1747907155326
+    modified: 1750323459545
+  cookies:
+    - key: KC_RESTART
+      maxAge: 0
+      domain: sso.apim.eu
+      path: /auth/realms/Jerome/
+      secure: true
+      httpOnly: true
+      extensions:
+        - Version=1
+      hostOnly: true
+      creation: 2025-06-19T08:57:38.910Z
+      lastAccessed: 2025-06-19T08:57:38.910Z
+      id: e67bee60-f136-44cb-bf47-04dc6aa61811
 environments:
   name: Base Environment
   meta:
     id: env_0e93197a0c0fa1dcd4c0bce1bc89bdde365c8743
     created: 1747907155324
-    modified: 1747907155324
+    modified: 1750323459546
     isPrivate: false
+  data:
+    POD-AAT: eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxOEVFR3YweE9FQkt3eFNJYVZDNGpHTWxVcF8yWURhS1pfMVdZNHV3b2lRIn0.eyJleHAiOjE3NTAzMjUyNTgsImlhdCI6MTc1MDMyMzQ1OCwianRpIjoiZDhjZDFlYWUtNWQ4OS00ODRjLWEyMTUtOTIzNTNkMzBlYTEwIiwiaXNzIjoiaHR0cHM6Ly9zc28uYXBpbS5ldTo4NDQzL2F1dGgvcmVhbG1zL0plcm9tZSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiIzNmZhYzkxZC04MjA0LTQxMjUtOTEwMy00NDYxMDAyMGU0ODMiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJjbGllbnQxIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtamVyb21lIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJjbGllbnQxIjp7InJvbGVzIjpbInVtYV9wcm90ZWN0aW9uIl19LCJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIGJyb256ZSBvcGVuYWkiLCJjbGllbnRJZCI6ImNsaWVudDEiLCJjbGllbnRIb3N0IjoiMTQxLjI1NS4xMzMuMjMxIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQtY2xpZW50MSIsImNsaWVudEFkZHJlc3MiOiIxNDEuMjU1LjEzMy4yMzEifQ.B1vwTFvEu096Qlas8KX_3GP5D3dIMkGA-lBL4DRU2V1KzrJb_e6GzyWev2IyTE0_2hUIt6A_VhEL4hO0qZ9Mj5vp7Ib2yoeKyS-FGFYxYhZMYRY3Rx5NizwcCfgE0Wrc-sG0kYQdpt30DXUxXDV_uVzdgakYq3Jflsm_mg4RoUIMTsh9Q5qe9g_MBib_hfe6XeNUdLFlWlgeO_YFa-h7l6_LtHxHyR_d4hmydjdSS9BSS3rkcSJWpr40qW1XLTHsLR7E6VTqzGLR04LbOtTMqJyDChGK55JvbrX9-TNE5UAstqm1P_kokf3v9kGDqoooQFvyIdo59JwXI34-xt628g
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_78d69f92247b4582b292d4659231cd24
+        created: 1750324792477
+        modified: 1750324830121
+        isPrivate: false
+        sortKey: 1750324792477
+      data:
+        host: host-dev:8000
+      color: "#da5252"
+    - name: Staging
+      meta:
+        id: env_5f235c1c6d8f4862addc511eaafa64c7
+        created: 1750324835807
+        modified: 1750324873679
+        isPrivate: false
+        sortKey: 1750324835807
+      data:
+        host: host-staging:9000
+      color: "#248f3e"
+    - name: Prod
+      meta:
+        id: env_73a8227acaa04ed6bfbbfdddf29ab927
+        created: 1750324877608
+        modified: 1750324896044
+        isPrivate: false
+        sortKey: 1750324877608
+      data:
+        host: host:443
+      color: "#1c47ab"
