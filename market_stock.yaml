@@ -202,7 +202,7 @@ spec:
           - "*"
     x-kong-plugin-key-auth:
       name: key-auth
-      enabled: false
+      enabled: true
       config:
         key_names:
           - api_key
@@ -320,4 +320,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1749819154684
+    modified: 1751360853006
