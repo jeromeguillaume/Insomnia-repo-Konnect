@@ -10,7 +10,7 @@ collection:
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1749819217261
+      modified: 1752758625887
       sortKey: -1744296842512
       description: ""
     children:
@@ -137,20 +137,20 @@ cookieJar:
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1749819217257
+    modified: 1752758625886
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1749819217261
+    modified: 1752758625887
     isPrivate: false
   subEnvironments:
     - name: Dev
       meta:
         id: env_95ad3ad32ce24f1bbaf69b738bb4c6ca
         created: 1745587152579
-        modified: 1749819217260
+        modified: 1752758625886
         isPrivate: false
         sortKey: 1745587152579
       data:
@@ -182,7 +182,7 @@ spec:
     openapi: 3.0.2
     info:
       title: Market Stock
-      version: 1.0.9
+      version: 1.0.10
       description: Market Stock API Information Service - mocking for demo purpose
       contact:
         name: Jerome Guillaume
@@ -320,4 +320,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1751378735072
+    modified: 1752758744697

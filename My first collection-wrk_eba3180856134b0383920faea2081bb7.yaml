@@ -1,0 +1,110 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_eba3180856134b0383920faea2081bb7
+  created: 1752758673864
+  modified: 1752758673864
+  description: ""
+collection:
+  - url: http://httpbin.apim.eu/anything
+    name: /anything
+    meta:
+      id: req_faa396bee81d4db2a4f2a4efeb7e8acd
+      created: 1752757816552
+      modified: 1752757858044
+      isPrivate: false
+      description: ""
+      sortKey: -1752757816552
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.3.0
+    scripts:
+      preRequest: ""
+      afterResponse: ""
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://{{ _.host }}/anything
+    name: /anything
+    meta:
+      id: req_6ff6925c974749838dd20caf2d5f8b1d
+      created: 1752757865663
+      modified: 1752758255941
+      isPrivate: false
+      description: ""
+      sortKey: -1752747087894
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"key1": "{{ _.val1 }}"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.3.0
+    scripts:
+      preRequest: ""
+      afterResponse: ""
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_66466f898e8845089fb9afbcb760f338
+    created: 1752757816510
+    modified: 1752757816510
+environments:
+  name: Base Environment
+  meta:
+    id: env_04cc8474e8c74c42bdc3cbc92fa4f7e2
+    created: 1752757816509
+    modified: 1752757816509
+    isPrivate: false
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_69bb20cf99b14b62b06b8752c725e9f9
+        created: 1752758018988
+        modified: 1752758238610
+        isPrivate: false
+        sortKey: 1752758018988
+      data:
+        host: httpbin.apim.eu
+        val1: dev-val1
+      color: "#36a164"
+    - name: Staging
+      meta:
+        id: env_a0067085a6524be5b944c7b2076e7996
+        created: 1752758029078
+        modified: 1752758085367
+        isPrivate: false
+        sortKey: 1752758029078
+      data:
+        host: staging-httpbin.apim.eu
+      color: "#b1b33d"
+    - name: Prod
+      meta:
+        id: env_2fd5caefe8764f809bfbcb64bc6c2972
+        created: 1752758043167
+        modified: 1752758247201
+        isPrivate: false
+        sortKey: 1752758043167
+      data:
+        host: httpbin.konghq.com
+        val1: prod-val1
+      color: "#df3a3a"
