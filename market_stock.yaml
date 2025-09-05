@@ -10,7 +10,7 @@ collection:
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1757060241191
+      modified: 1757073377628
       sortKey: -1744296842512
       description: ""
     children:
@@ -27,12 +27,8 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
-            id: pair_b5c83bed705747188921049c201ee9a8
-          - id: pair_50cdcbe721ea4109ae4572b3a0ee94fb
-            name: apikey
+          - name: apikey
             value: gold
-            description: ""
-            disabled: false
         scripts:
           afterResponse: |+
             
@@ -61,12 +57,8 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
-            id: pair_fbea060d7aef4660811550496bd6b7e8
-          - id: pair_cf19c2b3b9d946e0a55de748165b0cf3
-            name: apikey
+          - name: apikey
             value: gold
-            description: ""
-            disabled: false
         scripts:
           afterResponse: |+
             
@@ -90,20 +82,20 @@ cookieJar:
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1757060241186
+    modified: 1757073377623
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1757060241190
+    modified: 1757073377628
     isPrivate: false
   subEnvironments:
     - name: Dev
       meta:
         id: env_95ad3ad32ce24f1bbaf69b738bb4c6ca
         created: 1745587152579
-        modified: 1757056687292
+        modified: 1757073250295
         isPrivate: false
         sortKey: 1745587152579
       data:
@@ -129,12 +121,22 @@ environments:
       data:
         host: http://localhost
       color: "#c9cc19"
+    - name: staging
+      meta:
+        id: env_c7d73ad14ce54b729487bd167dfbcc91
+        created: 1757073304527
+        modified: 1757073377627
+        isPrivate: false
+        sortKey: 1757073304527
+      data:
+        host: httpbin.apim.eu/anything
+      color: "#d78614"
 spec:
   contents:
     openapi: 3.0.2
     info:
       title: Market Stock
-      version: 1.0.18
+      version: 1.0.19
       description: Market Stock API Information Service - mocking for demo purpose
       contact:
         name: Jerome Guillaume
@@ -402,4 +404,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1757060384097
+    modified: 1757073405442
