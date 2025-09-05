@@ -22,7 +22,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: test
-        run: inso run collection wrk_ea3568
+        run: inso run collection --env env_95ad3ad32c "Market Stock"
   deploy_to_konnect:
     runs-on: self-hosted
     needs: 
