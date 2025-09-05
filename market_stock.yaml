@@ -3,14 +3,14 @@ name: Market Stock
 meta:
   id: wrk_ea3568dbfbf0458b93fbd4434d102812
   created: 1744096096958
-  modified: 1749819094891
+  modified: 1757057018646
   description: ""
 collection:
   - name: My Folder
     meta:
       id: fld_8d7030b217924e5eb45dfa756396fb8b
       created: 1744296842512
-      modified: 1752758625887
+      modified: 1757058731396
       sortKey: -1744296842512
       description: ""
     children:
@@ -19,7 +19,7 @@ collection:
         meta:
           id: req_cf31479d1a2d4d8abf99ac9936a04995
           created: 1744107267558
-          modified: 1747904956669
+          modified: 1757056666101
           isPrivate: false
           description: ""
           sortKey: -1744296847234
@@ -27,6 +27,12 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
+            id: pair_b5c83bed705747188921049c201ee9a8
+          - id: pair_50cdcbe721ea4109ae4572b3a0ee94fb
+            name: apikey
+            value: gold
+            description: ""
+            disabled: false
         scripts:
           afterResponse: |+
             
@@ -47,7 +53,7 @@ collection:
         meta:
           id: req_7e6dbda88f8245dba9a8367b75f0f0a7
           created: 1744107319718
-          modified: 1746170951756
+          modified: 1757056677297
           isPrivate: false
           description: ""
           sortKey: -1744296847134
@@ -55,6 +61,12 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.0.2
+            id: pair_fbea060d7aef4660811550496bd6b7e8
+          - id: pair_cf19c2b3b9d946e0a55de748165b0cf3
+            name: apikey
+            value: gold
+            description: ""
+            disabled: false
         scripts:
           afterResponse: |+
             
@@ -73,94 +85,39 @@ collection:
             send: true
             store: true
           rebuildPath: true
-  - url: http://{{ _.host }}/myhttpbin/anything
-    name: /anything
-    meta:
-      id: req_0a0787f23699467894d3c327f2a64ba8
-      created: 1747904969261
-      modified: 1747905661225
-      isPrivate: false
-      description: ""
-      sortKey: -1747904969261
-    method: GET
-    headers:
-      - name: User-Agent
-        value: insomnia/11.1.0
-    authentication:
-      type: basic
-      useISO88591: false
-      username: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
-        '{\"secretName\":\"mysecret\",\"kvVersion\":\"v2\",\"secretEnginePath\":\
-        \"ca-ts\",\"secretKey\":\"client_id\"}' %}"
-      password: "{% vault 'hashicorp', 'cloudCred_b5ad4cb7f11344e7b858bebb2ab25aec',
-        '{\"secretName\":\"mysecret\",\"kvVersion\":\"v2\",\"secretEnginePath\":\
-        \"ca-ts\",\"secretKey\":\"client_secret\"}' %}"
-      disabled: false
-    scripts:
-      preRequest: |+
-        
-        insomnia.request.addHeader({key: 'X-My-Header', value: 'ca-ts' });
-        console.log("log", "My debug");
-
-
-
-      afterResponse: |+
-        
-        insomnia.test('Check if status is 200', () => {
-            insomnia.expect(insomnia.response.code).to.eql(200);
-        	
-        	
-        const jsonBody = insomnia.response.json();
-
-
-        insomnia.expect(jsonBody.method).to.be.a('string');
-
-
-        	
-        });
-
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
 cookieJar:
   name: Default Jar
   meta:
     id: jar_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098377
-    modified: 1752758625886
+    modified: 1757058731392
 environments:
   name: Base Environment
   meta:
     id: env_f02ba057928aa71a1ff488d6c7f4bae00e093bc3
     created: 1744096098373
-    modified: 1752758625887
+    modified: 1757058731396
     isPrivate: false
   subEnvironments:
     - name: Dev
       meta:
         id: env_95ad3ad32ce24f1bbaf69b738bb4c6ca
         created: 1745587152579
-        modified: 1752758625886
+        modified: 1757056687292
         isPrivate: false
         sortKey: 1745587152579
       data:
         host: httpbin.apim.eu/anything
-        X-Header: ca-ts
       color: "#323cc8"
     - name: Prod
       meta:
         id: env_5cbaab419e214d3b8d95999828a0958f
         created: 1745587172949
-        modified: 1747905706280
+        modified: 1757058731396
         isPrivate: false
         sortKey: 1745587172949
       data:
-        host: localhost:8000
+        host: proxy.client.com:8000
       color: "#0ba80d"
     - name: homol
       meta:
@@ -177,7 +134,7 @@ spec:
     openapi: 3.0.2
     info:
       title: Market Stock
-      version: 1.0.12
+      version: 1.0.13
       description: Market Stock API Information Service - mocking for demo purpose
       contact:
         name: Jerome Guillaume
@@ -204,6 +161,43 @@ spec:
           - apikey
         key_in_body: false
         hide_credentials: true
+    x-kong-mocking:
+      name: mocking
+      config:
+        api_specification: 'openapi: 3.0.2 info: title: Market Stock version: 1.0.3
+          description: Market Stock API Information Service - mocking for demo
+          purpose contact: name: Jerome Guillaume url:
+          https://gitlab.com/jeromeguillaume/market-stock email:
+          jerome.guillaume@konghq.com servers: - url:
+          https://httpbin.apim.eu/anything description: main server
+          externalDocs: description: GitHub project for the code and information
+          about this API url:
+          https://github.com/jeromeguillaume/myrepo-API-Konnect tags: - name:
+          market description: Market Stock paths: /market/stock/historical: get:
+          operationId: getMarketStockHistorical summary: market stock historical
+          data description: Returns the historical data of stock price tags: -
+          market responses: "200": description: status 200 content:
+          application/json: schema: type: array items: type: object examples:
+          response_IBM: value: - api_name: historical_stock_price_v2
+          num_total_data_points: 1 credit_cost: 10 start_date: yesterday
+          end_date: yesterday - IBM: - date: 2024-01-11 volume: 65723 high:
+          182.23 low: 179.65 adj_close: 46.04 close: 181.04 open: 180.02
+          response_KONG: value: - api_name: historical_stock_price_v2
+          num_total_data_points: 1 credit_cost: 10 start_date: yesterday
+          end_date: yesterday - KONG: - date: 2024-07-15 volume: 88888 high:
+          90.09 low: 80.08 adj_close: 77.77 close: 99.99 open: 66.66 "404":
+          description: status 404 content: application/json: schema: type: array
+          items: type: object examples: response: value: - error: Not found
+          "503": description: status 503 content: application/json: schema:
+          type: array items: type: object examples: response: value: - error:
+          Service unvailable /market/stock/closing: get: operationId:
+          getMarketStockClosing summary: closing value description: Get the
+          closing value of a stock price tags: - market parameters: - name:
+          tickers in: query required: true schema: type: string example: AAPL
+          responses: "200": description: Status 200 content: application/json:
+          examples: response: value: meta_data: api_name: closing_stock_price_v1
+          result_data: AAPL: - date: 2024-07-15 volume: 89588 high: 230.15 low:
+          224.01 adj_close: 25.05 close: 229.03 open: 221.87'
     tags:
       - name: market
         description: Market Stock
@@ -315,4 +309,4 @@ spec:
   meta:
     id: spc_91639e358913461199ec369f8dfd06e6
     created: 1744096096961
-    modified: 1757056413956
+    modified: 1757059106230
